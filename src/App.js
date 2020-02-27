@@ -6,10 +6,11 @@ function App() {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    setTimeout(() =>{
+    let id = setTimeout(() =>{
       document.title = `Current Count ${count}`
       setCount(count + 1)
     }, 1000)
+    return () => clearTimeout(id)
   }, [count])
 
   //   document.title = `Todo Changed ${count}`
